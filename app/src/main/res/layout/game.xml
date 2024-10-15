@@ -1,0 +1,93 @@
+<!-- res/layout/activity_card_matching.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/another"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Current Player Display -->
+    <TextView
+        android:id="@+id/currentPlayerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="Current Player: "
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <!-- Card Images Section (Current & Previous Cards) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <!-- Current Card Image -->
+        <ImageView
+            android:id="@+id/currentCardImage"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_margin="8dp"
+            android:background="#FFFFFF"
+            android:scaleType="centerInside" />
+
+        <!-- Previous Card Image -->
+        <ImageView
+            android:id="@+id/previousCardImage"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:layout_margin="8dp"
+            android:background="#FFFFFF"
+            android:scaleType="centerInside" />
+    </LinearLayout>
+
+    <!-- Dropdown Menu for Selecting Cards -->
+    <Spinner
+        android:id="@+id/cardSelector"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="16dp" />
+
+    <!-- Buttons for Play Card and Exit -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:text="Play Card" />
+
+        <Button
+            android:id="@+id/exitButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exit Game" />
+    </LinearLayout>
+
+    <!-- Score and Game Log Area -->
+    <TextView
+        android:id="@+id/scoreLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="#F5F5F5"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Scores:" />
+
+    <TextView
+        android:id="@+id/moveArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F5F5F5"
+        android:gravity="center"
+        android:padding="8dp"
+        android:text="Moves:" />
+</LinearLayout>

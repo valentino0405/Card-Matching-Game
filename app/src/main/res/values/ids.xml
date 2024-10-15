@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="currentPlayerLabel" type="id" />
+    <item name="currentCardImage" type="id" />
+    <item name="previousCardImage" type="id" />
+    <item name="cardSelector" type="id" />
+    <item name="playButton" type="id" />
+    <item name="exitButton" type="id" />
+    <item name="scoreArea" type="id" />
+    <item name="moveArea" type="id" />
+</resources>

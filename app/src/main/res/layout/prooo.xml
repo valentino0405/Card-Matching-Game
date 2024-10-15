@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainGoal1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/another"
+        android:padding="16dp"
+        android:scrollbarStyle="insideInset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Player Name Input Section -->
+            <LinearLayout
+                android:id="@+id/nameInputLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/player1NameInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="8dp"
+                    android:hint="Enter Player 1 Name"
+                    android:textColor="@color/white" />
+
+                <EditText
+                    android:id="@+id/player2NameInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginBottom="8dp"
+                    android:hint="Enter Player 2 Name"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/startGameButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Start Game" />
+            </LinearLayout>
+
+            <!-- Current Player Display -->
+            <TextView
+                android:id="@+id/currentPlayerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Current Player: "
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- Card Images Section (Current & Previous Cards) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- Current Card Image -->
+                <ImageView
+                    android:id="@+id/currentCardImage"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="8dp"
+                    android:background="#FFFFFF"
+                    android:scaleType="centerInside" />
+
+                <!-- Previous Card Image -->
+                <ImageView
+                    android:id="@+id/previousCardImage"
+                    android:layout_width="150dp"
+                    android:layout_height="200dp"
+                    android:layout_margin="8dp"
+                    android:background="#FFFFFF"
+                    android:scaleType="centerInside" />
+            </LinearLayout>
+
+            <!-- Buttons for Play Card and Exit -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/playButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="16dp"
+                    android:enabled="false"
+                    android:text="Play Card" /> <!-- Initially disabled -->
+
+                <Button
+                    android:id="@+id/exitButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Exit Game" />
+            </LinearLayout>
+
+            <!-- Score and Game Log Area -->
+            <TextView
+                android:id="@+id/scoreLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#F5F5F5"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Scores:" />
+
+            <TextView
+                android:id="@+id/historyLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="History:" />
+
+            <TextView
+                android:id="@+id/player1DeckLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Player 1 Deck: 0 cards left" />
+
+            <TextView
+                android:id="@+id/player2DeckLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Player 2 Deck: 0 cards left" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
