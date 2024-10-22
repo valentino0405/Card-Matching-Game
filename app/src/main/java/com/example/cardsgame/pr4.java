@@ -35,7 +35,6 @@ public class pr4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pr4);
 
-        // Bind UI elements
         currentPlayerLabel = findViewById(R.id.currentPlayerLabel);
         currentCardImage = findViewById(R.id.currentCardImage);
         previousCardImage = findViewById(R.id.previousCardImage);
@@ -52,7 +51,6 @@ public class pr4 extends AppCompatActivity {
         player1DeckGrid = findViewById(R.id.player1DeckGrid);
         player2DeckGrid = findViewById(R.id.player2DeckGrid);
 
-        // Set the start game button's functionality
         startGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +58,6 @@ public class pr4 extends AppCompatActivity {
             }
         });
 
-        // Set the play card button's functionality
         playCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,11 +65,10 @@ public class pr4 extends AppCompatActivity {
             }
         });
 
-        // Set the exit button's functionality
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Exit the game
+                finish();
             }
         });
     }
@@ -96,7 +92,7 @@ public class pr4 extends AppCompatActivity {
 
         displayPlayerDecks();
         updateUI();
-        playCardButton.setEnabled(true); // Enable play card button
+        playCardButton.setEnabled(true);
     }
 
     private void initializeDeck() {
@@ -104,7 +100,6 @@ public class pr4 extends AppCompatActivity {
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
         String[] values = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 
-        // Create the deck with all combinations of suits and values
         for (String suit : suits) {
             for (String value : values) {
                 deck.add(new Card2(suit, value));
@@ -133,7 +128,6 @@ public class pr4 extends AppCompatActivity {
         lastPlayedCard = playedCard;
         updateUI();
 
-        // Switch to next player
         currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
     }
 

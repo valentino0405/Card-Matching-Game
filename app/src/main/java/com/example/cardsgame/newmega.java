@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class mega extends AppCompatActivity {
+public class newmega extends AppCompatActivity {
 
     private List<Card> deck;
     private List<Player> players;
@@ -68,7 +67,7 @@ public class mega extends AppCompatActivity {
         player2CardsButton = findViewById(R.id.Player2cards); // Player 2 deck ImageButton
         middleDeckButton = findViewById(R.id.middledeck); // Middle deck for cards played
         historyButton = findViewById(R.id.history); // History ImageButton
-         // Leaderboard ImageButton
+        leaderboardButton = findViewById(R.id.imageButton5); // Leaderboard ImageButton
 
         // Score TextViews
         player1ScoreText = findViewById(R.id.player1Score); // Player 1 score TextView
@@ -166,7 +165,7 @@ public class mega extends AppCompatActivity {
         // Update game history
         String historyEntry = currentPlayer.getName() + " played " + playedCard.getValue() + " of " + playedCard.getSuit();
         gameHistory.append(historyEntry).append("\n"); // Append to the game history
-        Toast.makeText(this, historyEntry, Toast.LENGTH_SHORT).show(); // Optional: Show the move as a toast
+        Toast.makeText(this, historyEntry, Toast.LENGTH_SHORT).show();// Optional: Show the move as a toast
 
         // Update deck display
         player1CardsButton.setImageResource(R.drawable.card_back); // Update Player 1's card back
@@ -224,35 +223,34 @@ public class mega extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Hide the history layout and show the game layout
-                returnToGameLayout();
+                returnToGameLayout(); // Go back to the game layout
             }
         });
     }
 
-    // Method to return to the game layout and re-bind UI elements
+    // Method to return to the game layout and restore state
     private void returnToGameLayout() {
+        // Switch back to the game layout (themega.xml)
         setContentView(R.layout.themega);
-        bindGameUIElements(); // Bind UI elements again to resume the game
 
-        // Restore player names
+        // Bind the game UI elements again (text views, buttons, etc.)
+        bindGameUIElements();
+
+        // Restore player names and scores
         player1NameText.setText(players.get(0).getName());
         player2NameText.setText(players.get(1).getName());
-
         updateScoreUI();
-        // Restore UI for card buttons
+
+        // Restore the last played card in the middle deck, if any
+        if (lastPlayedCard != null) {
+            middleDeckButton.setImageResource(getCardImage(lastPlayedCard));
+        }
+
+        // Restore card back images for player decks
         player1CardsButton.setImageResource(R.drawable.card_back);
         player2CardsButton.setImageResource(R.drawable.card_back);
-    }
 
-    // Method to bind UI elements for the game layout
-    private void bindGameUIElements() {
-        player1CardsButton = findViewById(R.id.Player1cards); // Player 1 deck ImageButton
-        player2CardsButton = findViewById(R.id.Player2cards); // Player 2 deck ImageButton
-        middleDeckButton = findViewById(R.id.middledeck); // Middle deck for cards played
-        historyButton = findViewById(R.id.history); // History ImageButton
-
-        // Set click listeners for player card buttons
+        // Set click listeners again for card buttons
         player1CardsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -267,13 +265,34 @@ public class mega extends AppCompatActivity {
             }
         });
 
-        // Set the history button's functionality
+        // Set the history button's functionality again
         historyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showHistory();
+                showHistory(); // Show the history view
+            }
+        });
+
+        // Set click listener for leaderboard button (if needed)
+        leaderboardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Show leaderboard (implementation depends on your app)
+                Toast.makeText(newmega.this, "Leaderboard clicked!", Toast.LENGTH_SHORT).show();
             }
         });
     }
-}
 
+    // Helper method to bind UI elements for the game layout
+    private void bindGameUIElements() {
+        player1NameText = findViewById(R.id.textView3);
+        player2NameText = findViewById(R.id.textView4);
+        player1CardsButton = findViewById(R.id.Player1cards);
+        player2CardsButton = findViewById(R.id.Player2cards);
+        middleDeckButton = findViewById(R.id.middledeck);
+        historyButton = findViewById(R.id.history);
+        leaderboardButton = findViewById(R.id.imageButton5);
+        player1ScoreText = findViewById(R.id.player1Score);
+        player2ScoreText = findViewById(R.id.player2Score);
+    }
+}

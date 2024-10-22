@@ -33,7 +33,6 @@ public class pro extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pro);
 
-        // Bind UI elements
         currentPlayerLabel = findViewById(R.id.currentPlayerLabel);
         currentCardImage = findViewById(R.id.currentCardImage);
         previousCardImage = findViewById(R.id.previousCardImage);
@@ -48,7 +47,6 @@ public class pro extends AppCompatActivity {
         player2NameInput = findViewById(R.id.player2NameInput);
         startGameButton = findViewById(R.id.startGameButton);
 
-        // Set the start game button's functionality
         startGameButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,19 +54,17 @@ public class pro extends AppCompatActivity {
             }
         });
 
-        // Set the exit button's functionality
         exitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Exit the game
+                finish();
             }
         });
 
-        // Set the play card button's functionality
         playCardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playCard(); // Call playCard method
+                playCard();
             }
         });
     }
@@ -91,7 +87,7 @@ public class pro extends AppCompatActivity {
         dealCards();
 
         updateUI();
-        playCardButton.setEnabled(true); // Enable play card button
+        playCardButton.setEnabled(true);
     }
 
     private void initializeDeck() {
@@ -99,7 +95,6 @@ public class pro extends AppCompatActivity {
         String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
         String[] values = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
 
-        // Create the deck with all combinations of suits and values
         for (String suit : suits) {
             for (String value : values) {
                 deck.add(new Card(suit, value));
@@ -124,47 +119,39 @@ public class pro extends AppCompatActivity {
             return;
         }
 
-        // Get and remove the top card from the player's hand
         Card playedCard = currentPlayer.playCard();
         if (playedCard == null) {
             Toast.makeText(this, "No cards to play!", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Check if the played card matches the last played card
         if (lastPlayedCard != null && playedCard.getValue().equals(lastPlayedCard.getValue())) {
             Toast.makeText(this, currentPlayer.getName() + " won this round!", Toast.LENGTH_SHORT).show();
-            currentPlayer.addPoint(); // Award a point for matching cards
+            currentPlayer.addPoint();
         }
 
-        // Update the previous card image before replacing the current card
         if (lastPlayedCard != null) {
             previousCardImage.setImageResource(getCardImage(lastPlayedCard));
         }
 
         lastPlayedCard = playedCard;
-        currentCardImage.setImageResource(getCardImage(playedCard)); // Update the current card image
+        currentCardImage.setImageResource(getCardImage(playedCard));
 
-        // Update history
         String history = currentPlayer.getName() + " played " + playedCard.getValue() + " of " + playedCard.getSuit();
         historyLabel.append(history + "\n");
 
-        // Update deck display
         player1DeckLabel.setText("Player 1 Deck: " + players.get(0).getHandSize() + " cards left");
         player2DeckLabel.setText("Player 2 Deck: " + players.get(1).getHandSize() + " cards left");
 
-        // Switch to the next player
         currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
         updateUI();
     }
 
     private void updateUI() {
-        // Update the current player label and scores
         currentPlayerLabel.setText("Current Player: " + players.get(currentPlayerIndex).getName());
         scoreLabel.setText("Scores:\n" + players.get(0).getName() + ": " + players.get(0).getScore() +
                 "\n" + players.get(1).getName() + ": " + players.get(1).getScore());
 
-        // Update deck display
         player1DeckLabel.setText("Player 1 Deck: " + players.get(0).getHandSize() + " cards left");
         player2DeckLabel.setText("Player 2 Deck: " + players.get(1).getHandSize() + " cards left");
     }
@@ -172,21 +159,17 @@ public class pro extends AppCompatActivity {
     private int getCardImage(Card card) {
         String imageName;
 
-        // Check if the card is a face card (i.e., King, Queen, Jack, etc.)
         if (card.getValue().equalsIgnoreCase("king") ||
                 card.getValue().equalsIgnoreCase("queen") ||
                 card.getValue().equalsIgnoreCase("jack") ||
                 card.getValue().equalsIgnoreCase("ace")) {
 
-            // For face cards, use the format: "queen_of_spades"
             imageName = card.getValue().toLowerCase() + "_of_" + card.getSuit().toLowerCase();
 
         } else {
-            // For number cards, use the format: "spades_of_9"
             imageName = card.getSuit().toLowerCase() + "_of_" + card.getValue().toLowerCase();
         }
 
-        // Get the drawable resource ID based on the imageName
         return getResources().getIdentifier(imageName, "drawable", getPackageName());
     }
 }

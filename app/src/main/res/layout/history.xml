@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/another">
+    android:background="@drawable/greenback1">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="650dp"
+        android:layout_marginBottom="600dp"
+        android:background="@drawable/mastercard"
+        android:fontFamily="@font/bruno_ace_sc"
         android:text="HISTORY"
         android:textColor="@color/white"
-        android:textSize="34sp"
+        android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +24,8 @@
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,6 +35,7 @@
             android:id="@+id/historydis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/league_spartan"
             android:text="HISTORYyyy"
             android:textColor="@color/white"
             android:textSize="20sp" />

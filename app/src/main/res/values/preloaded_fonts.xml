@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/bahiana</item>
+        <item>@font/bruno_ace_sc</item>
+        <item>@font/bungee_shade</item>
+        <item>@font/comforter_brush</item>
+        <item>@font/league_spartan</item>
+        <item>@font/league_spartan_thin</item>
+    </array>
+</resources>

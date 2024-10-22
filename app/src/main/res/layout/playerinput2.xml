@@ -10,6 +10,7 @@
         android:id="@+id/player1"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,9 +25,7 @@
             android:drawableStart="@drawable/baseline_person_24"
             android:fontFamily="@font/bahiana"
             android:hint="Enter name of Player 1"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -47,9 +46,7 @@
             android:drawableStart="@drawable/baseline_person_24"
             android:fontFamily="@font/bahiana"
             android:hint="Enter Name of Player 2"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="30sp" />
+            android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
