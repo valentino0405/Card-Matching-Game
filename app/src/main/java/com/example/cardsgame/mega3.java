@@ -137,8 +137,7 @@ public class mega3 extends AppCompatActivity {
             return;
         }
 
-        if (lastPlayedCard != null && (playedCard.getValue().equals(lastPlayedCard.getValue()) ||
-                playedCard.getSuit().equals(lastPlayedCard.getSuit()))) {
+        if (lastPlayedCard != null && (playedCard.getValue().equals(lastPlayedCard.getValue()))) {
             Toast.makeText(this, currentPlayer.getName() + " won this round!", Toast.LENGTH_SHORT).show();
             currentPlayer.addPoint();
             updateScoreUI();

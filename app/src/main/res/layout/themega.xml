@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/greenback1">
+    android:background="@drawable/another">
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -30,7 +30,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="635dp"
-            android:background="@drawable/yellow"
             android:fontFamily="@font/bruno_ace_sc"
             android:text="Player 1"
             android:textColor="@color/white"
@@ -45,7 +44,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="635dp"
-            android:background="@drawable/yellow"
             android:fontFamily="@font/bruno_ace_sc"
             android:text="Player 2"
             android:textColor="@color/white"
